@@ -122,7 +122,7 @@ check("listed branch detached", listed.worktrees[0].branch === null && listed.wo
 console.log("findForCwd");
 const found = await manager.findForCwd(created.worktree.path);
 check("finds worktree from inside", found?.worktree.name === "feat-a");
-check("finds repo root", found?.repoRoot === repo);
+check("finds repo root", found?.repoRoot === fs.realpathSync(repo), `got ${found?.repoRoot}`);
 const notFound = await manager.findForCwd(repo);
 check("main tree is not a worktree", notFound === undefined);
 

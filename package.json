@@ -13,6 +13,17 @@
     "lib"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlashingChen/dsh-worktree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlashingChen/dsh-worktree/issues"
+  },
+  "homepage": "https://github.com/FlashingChen/dsh-worktree#readme",
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@deepseek-ai/cordis": "4.0.1",
     "@deepseek-ai/dsh-commands": "0.1.0-rc.6",

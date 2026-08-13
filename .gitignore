@@ -1,1 +1,4 @@
 node_modules/
+.smoke/
+*.log
+.DS_Store

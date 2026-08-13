@@ -1,5 +1,7 @@
 # dsh-worktree
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 Codex-style **permanent git worktrees** for DeepSeek Harness — a Cordis
 plugin that gives a DSH profile the same durable-worktree workflow as
 `codex worktree create --permanent`.
@@ -64,9 +66,10 @@ dsh plugin --profile web add dsh-worktree
 # 3. restart the profile (e.g. restart the `dsh web` process)
 ```
 
-Installing from this source checkout:
+Installing from this repository:
 
 ```sh
+git clone https://github.com/FlashingChen/dsh-worktree.git
 cd dsh-worktree
 npm install            # self-contained deps (pinned to the harness versions)
 dsh plugin --profile web add "$PWD"
@@ -141,3 +144,7 @@ lib/index.js     Cordis plugin: Config, tools, /worktree command,
                  one-shot session context note, ctx.worktree service
 test/smoke.js    standalone smoke test
 ```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
