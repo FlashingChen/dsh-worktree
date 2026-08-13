@@ -34,28 +34,31 @@
 
 ## 安装
 
-> 尚未发布到 npm——请从本仓库安装（发布后即可直接 `dsh plugin add dsh-worktree`）。
-
 ```sh
-# 1. 获取插件
-git clone https://github.com/FlashingChen/dsh-worktree.git
-cd dsh-worktree
-npm install            # 自带依赖，与 Harness 版本对齐
+# 1. 让 profile 可用该插件（从 npm 安装）
+dsh plugin --profile web add dsh-worktree
 
-# 2. 让 profile 可用该插件
-dsh plugin --profile web add "$PWD"
-
-# 3. 在 profile 的 patch 层激活
+# 2. 在 profile 的 patch 层激活
 #    在 ~/.dsh/profiles/web/cordis.patch.yml 中加入：
 #
 #    - insert:
 #        - id: worktree
 #          name: 'dsh-worktree'
 
-# 4. 重启 profile（例如重启 `dsh web` 进程）
+# 3. 重启 profile（例如重启 `dsh web` 进程）
 ```
 
-> 插件依赖锁定在构建时对应的 Harness 版本（`@deepseek-ai/* 0.1.0-rc.6`）。如果你的 DSH 安装版本不同，请在插件目录执行 `npm install <匹配版本>`（或修改 `package.json`），确保插件能对你的 Harness 正常加载。
+从源码安装（开发调试，或用于匹配不同版本的 Harness）：
+
+```sh
+git clone https://github.com/FlashingChen/dsh-worktree.git
+cd dsh-worktree
+npm install            # 自带依赖，与 Harness 版本对齐
+dsh plugin --profile web add "$PWD"
+# ... 然后同上加激活行并重启
+```
+
+> 插件依赖锁定在构建时对应的 Harness 版本（`@deepseek-ai/* 0.1.0-rc.6`）。如果你的 DSH 安装版本不同，请从源码安装，并在插件目录执行 `npm install <匹配版本>`（或修改 `package.json`），确保插件能对你的 Harness 正常加载。
 
 配置（全部可选）：
 

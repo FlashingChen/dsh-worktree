@@ -52,33 +52,35 @@ commit, work there with the normal file tools, and clean up afterwards.
 
 ## Installation
 
-> Not yet published to npm — install from this repository. (`dsh plugin add
-> dsh-worktree` will work once it is published.)
-
 ```sh
-# 1. get the plugin
-git clone https://github.com/FlashingChen/dsh-worktree.git
-cd dsh-worktree
-npm install            # self-contained deps, pinned to the harness versions
+# 1. make the plugin available to your profile (installs from npm)
+dsh plugin --profile web add dsh-worktree
 
-# 2. make the plugin available to your profile
-dsh plugin --profile web add "$PWD"
-
-# 3. activate it in the profile's patch layer
+# 2. activate it in the profile's patch layer
 #    add to ~/.dsh/profiles/web/cordis.patch.yml:
 #
 #    - insert:
 #        - id: worktree
 #          name: 'dsh-worktree'
 
-# 4. restart the profile (e.g. restart the `dsh web` process)
+# 3. restart the profile (e.g. restart the `dsh web` process)
+```
+
+Installing from source (development, or to match a different harness version):
+
+```sh
+git clone https://github.com/FlashingChen/dsh-worktree.git
+cd dsh-worktree
+npm install            # self-contained deps, pinned to the harness versions
+dsh plugin --profile web add "$PWD"
+# ... then the patch row and restart as above
 ```
 
 > The plugin's dependencies are pinned to the harness versions it was built
 > against (`@deepseek-ai/* 0.1.0-rc.6`). If your DSH installation is a
-> different version, run `npm install <matching versions>` in the plugin
-> directory (or adjust `package.json`) so the plugin loads against your
-> harness.
+> different version, install from source and run `npm install <matching
+> versions>` in the plugin directory (or adjust `package.json`) so the
+> plugin loads against your harness.
 
 Configuration (all optional):
 
